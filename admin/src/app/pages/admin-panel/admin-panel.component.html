@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav" fixedInViewport>
+    <mat-toolbar color="primary" class="sidenav-toolbar">
+      <span>Admin Panel</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of navItems" [routerLink]="item.routerlink"  (click)="onNavItemClick(item)">
+        <!-- <mat-icon matListIcon>{{ item.icon }}</mat-icon> -->
+        <h4 matLine>{{ item.name }}</h4>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="main-toolbar">
+      <button mat-icon-button (click)="toggleSidenav()" class="sidenav-toggle">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- <span>{{ selectedNavItem.name }}</span> -->
+      <span class="spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="content">
+      <!-- Dynamic content based on navigation selection will go here -->
+       <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
