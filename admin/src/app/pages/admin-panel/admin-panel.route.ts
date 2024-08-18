@@ -4,7 +4,13 @@ export const admin_routes: Routes = [
     {
         path:'',
         loadComponent:()=>import("./admin-panel.component").then(c=>c.AdminPanelComponent),
+        
         children:[
+            {
+                path:'',
+                redirectTo:"/admin/products",
+                pathMatch:"full"
+            },
             {
                 path:'products',
                 loadChildren:()=>import("./modules/products/products.route").then(route=>route.product_routes)

@@ -6,9 +6,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgForOf } from '@angular/common';
-
-
-
 @Component({
   selector: 'app-admin-panel',
   standalone: true,
