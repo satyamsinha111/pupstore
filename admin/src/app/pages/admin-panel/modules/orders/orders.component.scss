@@ -1,0 +1,27 @@
+.product-list-container {
+    display: flex;
+    justify-content: center;
+    // margin: 20px;
+  }
+  
+  .product-list-card {
+    width: 100%;
+    // max-width: 800px;
+    padding: 20px;
+  }
+  
+  .product-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  mat-header-cell, mat-cell {
+    padding: 8px;
+  }
+  
