@@ -18,6 +18,10 @@ export const admin_routes: Routes = [
             {
                 path:'orders',
                 loadChildren:()=>import("./modules/orders/orders.route").then(route=>route.orders_routes)
+            },
+            {
+                path:'accounts',
+                loadChildren:()=>import("./modules/account/account.route").then(route=>route.account_routes)
             }
         ]
     },
