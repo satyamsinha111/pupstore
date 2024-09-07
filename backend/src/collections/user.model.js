@@ -15,10 +15,19 @@ const userSchema = new Schema({
     phone: { type: String },
     createdAt: { type: Date, default: Date.now },
 });
-userSchema.index({'email':1})
-userSchema.index({'address.street':1});
-userSchema.index({'address.city':1});
-userSchema.index({'address.state':1});
+userSchema.index({'email':'text','email':'asc'})
+userSchema.index({'address.street':'text'});
+userSchema.index({'address.city':'text'});
+userSchema.index({'address.state':'text'});
+
+userSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) {
+        next();
+    }
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;

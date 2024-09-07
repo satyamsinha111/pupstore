@@ -9,5 +9,7 @@ const reviewSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
+reviewSchema.index({'rating':1})
+
 const Review = mongoose.model('Review', reviewSchema);
 module.exports = Review;

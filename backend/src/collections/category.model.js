@@ -7,5 +7,7 @@ const categorySchema = new Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
+categorySchema.index({'description':'text'})
+
 const Category = mongoose.model('Category', categorySchema);
 module.exports = Category;
